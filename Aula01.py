@@ -1,3 +1,3 @@
 "Fazendo"
-"várias"
-"versões"
+"melhor deixar assim"
+"com isso a mais"
