@@ -1,11 +1,11 @@
-# 02 - Desenvolva um código que pergunte um número n para o 
-# usuário e exiba todos seus divisores
+# # 02 - Desenvolva um código que pergunte um número n para o 
+# # usuário e exiba todos seus divisores
 
-#n = (input("Digite um número aqui: "))
+n = int(input("Digite um número aqui: "))
 
-lista = [21,23,24,"alo"]
-
-for i in lista:
-    print(lista)
-    print()
-    print(i)
+for i in range(1,n +1):
+  
+    if n % i ==0:
+    
+        print(f" São divisores de {n} o(s) número(s) {i}")
+    
