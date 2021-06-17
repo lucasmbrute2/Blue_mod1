@@ -16,6 +16,6 @@ for i in frase:
     elif i.upper() == "U":
         continue
     
-    print()
+    print(i,end="")
 
 
