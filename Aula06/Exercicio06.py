@@ -3,7 +3,6 @@
 
 
 frase = input("Digite aqui uma frase: ")
-nova_frase = ""
 
 for i in frase:
     if i.upper() == "A":
