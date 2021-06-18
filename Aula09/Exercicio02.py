@@ -30,7 +30,7 @@ print(lista_impar)
 
 # lista = []
 # lista_par = []
-# lista_impar = []                                                  #Aqui um caso onde nós perguntamos antes quantas vezes os usuário irá digitar o número.
+# lista_impar = []                                                  #Aqui um caso onde nós perguntamos antes quantas vezes o usuário irá digitar o número.
 # valor = int(input("Quantos valores você quer digitar ? "))
 # for i in range(valor):
 #     lista.append(int(input('Digite aqui o valor: ')))  
