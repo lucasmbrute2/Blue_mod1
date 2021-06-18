@@ -13,5 +13,3 @@ while continuar.upper().replace("s", "sim") == "SIM":
         print("Obrigado.")
         break         
 print(f"A soma dos valores foi resultou em {cont}")
-
-
