@@ -7,5 +7,6 @@ numero_inicio = int(input("Digite o número de início: "))
 numero_fim = int(input("Digite o número do fim: "))
 numero_passo = int(input("Digte o número de passo: "))
 
+
 for i in range(numero_inicio, numero_fim,numero_passo):
     print(i)

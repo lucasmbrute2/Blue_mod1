@@ -2,8 +2,12 @@
 # o maior e o menor peso lidos
 
 l = []
+vezes = 1
 
-lista = float(input("Digite o seu peso aqui: "))
+while vezes <= 5:
+    peso = float(input("Digite o seu peso aqui: "))
+    vezes += 1
+    l.append(peso)
 
-
-print(lista)   
+print(f"O maior peso é {max(l)} KG.")
+print(f"O menor peso é {min(l)} KG.")
