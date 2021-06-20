@@ -12,16 +12,15 @@ l2_total= []
 
 while cont < q_jogos:
     cont +=1
-    l.clear()
+    l = []
     while len(l) <=6:
         num = randint(1,60)
         if num not in l:
             l.append(num)
-        
+      
     l2_total.append(l)
+    
 
 print(num)
-
-
-print(l2_total)
+print(f"Vamos lá, essas são suas apostas: {l2_total}")
     
