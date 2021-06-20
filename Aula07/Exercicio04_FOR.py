@@ -16,6 +16,5 @@ for i in l:
         lista_pares += [i]
 
 soma = sum(lista_pares)
-print()
 print(f"Foram digitados {len(lista_pares)} valores pares")
 print(f"A soma dos valores pares é {soma}")
