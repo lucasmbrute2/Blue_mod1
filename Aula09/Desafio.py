@@ -19,4 +19,4 @@ for i in range(jogos):
     l_valores.append(l)
 
 
-    print(f" O jogo {i+1} saiu com os seguintes valores: {l_valores}")
+    print(f" O jogo {i+1} saiu com os seguintes valores: {l}")
