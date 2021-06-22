@@ -9,17 +9,18 @@ while True:
     num = int(input("Digite o um valor: "))
     continuar = input("Você quer continuar? ")
     l.append(num)
-    if continuar.upper() == 'SIM' or continuar.upper() == "S":
+    if continuar in ["S","sim","SIM","s"]:
         continue
     else:
         break
-
 for i, v in enumerate(l):
     if v %2 == 0:
         l_pares.append(v)
     else:
         l_impares.append(v)
-
+print('='*30)
 print(f"A lista completa é: {l}")
 print(f"A lista de pares é {l_pares}")
-print(f"A lista de ímpares é {l_impares}")
+print(f"A lista de ímpares é {l_impares}")    
+
+

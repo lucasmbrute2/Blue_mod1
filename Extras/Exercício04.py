@@ -11,10 +11,7 @@ while True:
     l.append(num)
     cont += 1
     continuar = input("Você deseja continuar? ") 
-    if continuar.upper() == "S" or continuar.upper() == "SIM":
-        continue
-    else:
-        print("Obrigado por participar!")
+    if continuar in ["N","n","Não","NÃO"]:
         break
 l.sort(reverse=True)
 print()
