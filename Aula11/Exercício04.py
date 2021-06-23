@@ -20,4 +20,4 @@ if ctps !=0:
     
 cadastro[nome] = l
 print(cadastro)
-print(f"{nome} se aposentará com {aposentar} anos.")
+print(f"{nome} se aposentará com {aposentar} anos.")                                                  

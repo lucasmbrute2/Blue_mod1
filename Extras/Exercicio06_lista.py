@@ -5,30 +5,31 @@
 
 l = []
 temp = []
-maior = menor = 0
+maior = 0
+menor = 0
 while True:
-    temp.append(input("Digite o seu nome: "))
-    temp.append(float(input("Digite o seu peso: ")))
-    if len(l) == 0:
+    temp.append(input("Digite o seu nome aqui: "))
+    temp.append(float(input("Digite o seu peso aqui: ")))
+    if len(l) ==0:
         maior = menor = temp[1]
-    else:  
-        if temp[1] > maior:
-            maior = temp[1]
-        elif temp[1] < menor:
-            menor = temp[1]
-    
+    if temp[1] > maior:
+        maior = temp[1]
+    elif temp[1] < menor:
+        menor = temp[1]
     l.append(temp[:])
+    temp.clear()
     continuar = input("Você quer continuar ? ")
-    temp = []
-    if continuar in ["N","Nao","n","não","NÃO","NAO","nao"]:
+    if continuar in ["S","SIM","s","sim"]:
+        continue
+    else:
         break
-    
-print(f"Foram cadastradas {len(l)} pessoas.")
-# print(f"As pessoas mais pesadas foram {[maior]}.")
-for p in l:
-    if p[1] == maior:
-        print(f"{p[0]} é a pessoas mais pesada, pesando {maior}KG")
-    elif p[1] == menor:
-        print(f"{p[0]} é a pessoas mais leve, pesando {menor}KG.")
+print("="*45)
+print(f"O total de pessoas foi {len(l)}")
+for i in l:
+    if i[1] == maior:
+        print(f"A pessoas mais leve é {i[0]}, pesando {menor} KG")
+    elif i[1] == menor:
+        print(f"A pessoas mais pesada é {i[0]}, pesando {maior} KG")    
 
-# print(f"As pessoas mais leves foram {[menor]}")
+    
+    
