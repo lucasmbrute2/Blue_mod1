@@ -37,22 +37,37 @@
 # print()
 # print(deletados)
 # print(vingadores)
-dic  = {}
-menor = 0
-maior = 0
-for v in range(6):
-    chave = input("Digite uma chave para o dicionário: ")
-    valor = int(input("Digite um valor para o dic: "))
-    if maior ==0:
-        menor = maior = valor    
-    if valor > maior:
-        maior = valor
-    elif valor <menor:
-        menor = valor
-    dic[chave] = valor
-for c , v in dic.items():
-    if v == maior:
-        print(f"A pessoa mais velha é {c} com {v} anos")
-    elif v == menor:
-        print(f"A pessoa mais nova é {c} com {v} anos")
-print(dic)
+
+
+l = []
+dic1 = {}
+for v in range(3):
+    dic1["UF"] = input("Digite aqui a UF: ")
+    dic1["sigla"] = input("Digite aqui a sigla: ")
+    l.append(dic1.copy())
+print(l)
+
+for i in l: 
+    for c, v in i.items():
+        print(f"O campo {c} tem valor {v}")
+
+    
+# dic  = {}
+# menor = 0
+# maior = 0
+# for v in range(6):
+#     chave = input("Digite uma chave para o dicionário: ")
+#     valor = int(input("Digite um valor para o dic: "))
+#     if maior ==0:
+#         menor = maior = valor    
+#     if valor > maior:
+#         maior = valor
+#     elif valor <menor:
+#         menor = valor
+#     dic[chave] = valor
+# for c , v in dic.items():
+#     if v == maior:
+#         print(f"A pessoa mais velha é {c} com {v} anos")
+#     elif v == menor:
+#         print(f"A pessoa mais nova é {c} com {v} anos")
+# print(dic)
