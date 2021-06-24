@@ -3,21 +3,19 @@
 # contratação e o salário. Calcule e acrescente , além da idade ,
 #  com quantos anos a pessoa vai se aposentar.# Considere que o trabalhador deve contribuir 
 # por 35 anos para se aposentar.
+dic = {}
 ano_atual = 2021
-cadastro = {}
-l= []
-nome = input("Digite aqui o seu nome: ")   
-ano_nascimento = int(input("Digite aqui o seu ano de nascimento: "))
-l.append(ano_nascimento)
-ctps = int(input("Digite aqui os anos trabalhados: "))
-l.append(ctps)
-idade = ano_atual - ano_nascimento 
-l.append(idade)
-if ctps !=0:
-    l.append(int(input("Digite o ano em que você foi contratado: ")))
-    l.append(float(input("Digite aqui o seu salário: ")))
-    aposentar = (35 - ctps) + idade
+
+dic['Nome'] = input("Digite o seu nome: ")
+ano_nascimento = int(input("Digite o ano em você nasceu: "))
+dic['CTPS'] = int(input("Digite o número da sua carteira de trabalho (0 não tem): "))
+dic['Idade'] = ano_atual - ano_nascimento
+if dic['CTPS'] != 0:
+    dic['Ano de contratação'] = int(input("Digite o ano em que você foi contratado: "))
+    dic['Salário'] = float(input("Informe o seu salário: "))
+    dic['Aposentadoria'] = 35 - (dic['Ano de contratação'] - ano_atual) + dic['Idade']
     
-cadastro[nome] = l
-print(cadastro)
-print(f"{nome} se aposentará com {aposentar} anos.")                                                  
+print("="*34)
+for c, v in dic.items():
+    print(f"{c}: {v}")
+

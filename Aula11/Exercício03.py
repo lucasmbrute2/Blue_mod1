@@ -14,11 +14,9 @@ elif media >=5 and media <7:
     situacao = "de recuperação."
 else:
     situacao = "reprovado, estude mais."
-aluno["situação"] = situacao
-
 for c, v in aluno.items():
     if c ==nome:
         print(f"O aluno é {c} e sua média é {v}")
-    else:
-        print(f"Ele está {v}")
+        print(f"Ele está {situacao}")
+    
 
