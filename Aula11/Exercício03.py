@@ -2,22 +2,23 @@
 # No final, mostre o conteúdo da estrutura na tela. 
 # A média para aprovação é 7. Se o aluno tirar entre 5 e 6.9 está de recuperação, 
 # caso contrário é reprovado.
-l=[]
-situacao_aluno = {}
-situacao = ""
-nome = input("Informe o seu nome: ")
-nota = float(input("Informe a sua nota: "))
-l.append(nota)
-for i in l:    
-    if nota >= 7:
-        situacao = "aprovado!!" 
-    elif nota <5:
-        situacao = "reprovado :("
-    else:
-        situacao = "recuperação"    
-l.append(situacao)
-situacao_aluno[nome] = l
-print(situacao_aluno)    
-    
+aluno = {}
 
+nome = input("Digite aqui seu nome: ")
+media = float(input("Digite aqui sua média: "))
+aluno[nome] = media
+
+if media >=7:
+    situacao = "aprovado!!!"
+elif media >=5 and media <7:
+    situacao = "de recuperação."
+else:
+    situacao = "reprovado, estude mais."
+aluno["situação"] = situacao
+
+for c, v in aluno.items():
+    if c ==nome:
+        print(f"O aluno é {c} e sua média é {v}")
+    else:
+        print(f"Ele está {v}")
 
