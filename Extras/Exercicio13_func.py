@@ -16,5 +16,4 @@ while True:
         continue
     else: 
         break
-
 print(maior(valor))
