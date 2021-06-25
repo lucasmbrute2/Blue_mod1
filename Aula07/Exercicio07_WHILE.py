@@ -9,9 +9,6 @@ total = 0
 above1000 = 0                                                           
 menor_valor = 1000000000000
 nome_produto = ""
- 
-
-
 while True:
     produto = (input("Digite o nome do produto aqui: "))
     valor = float(input("Digite o valor do produto aqui: "))
