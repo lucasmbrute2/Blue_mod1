@@ -19,3 +19,4 @@ print("="*34)
 for c, v in dic.items():
     print(f"{c}: {v}")
 
+ 
