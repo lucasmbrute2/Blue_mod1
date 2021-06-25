@@ -6,6 +6,8 @@ def valor(n1,n2):
         print(f"{n2} é maior")
     else:
         print("Os valores são iguais.")
+
+
 valor1 = float(input("Digite um valor: "))
 valor2 = float(input("Digite um segundo valor: "))
 valor(valor1,valor2)

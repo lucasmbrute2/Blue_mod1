@@ -16,6 +16,7 @@ else:
     situacao = "reprovado, estude mais."
 for c, v in aluno.items():
     if c ==nome:
+        print("="*35)
         print(f"O aluno é {c} e sua média é {v}")
         print(f"Ele está {situacao}")
     
