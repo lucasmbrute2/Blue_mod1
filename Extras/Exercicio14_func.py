@@ -25,7 +25,6 @@ def somaPar(n):
     print()
     print("="*40)
     print(f"A soma dos valores pares da lista é {soma}")
-
 numeros = []
 # importandoEx14 .
 sorteio(numeros)
