@@ -1,10 +1,5 @@
-
-
-# Crie um programa que tenha a função leialnt(), que vai funcionar de forma semelhante a funçã 
-# input(), do Python, só que fazendo a validação para aceitar apenas um valor numérico.
-
-# Ex:
-# n = leiaInt("Digite um n")
+# Faça um programa que tenha uma função chamada ficha(), que receba dois parâmetros opcionais: onome de um jogador e quantos gols ele marcou.
+# O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum dado não tenha sido informado corretamente.
 
 def ficha(nome="<desconhecido>",gols=0):
     print(f"O jogador {nome} fez {gols} gols no campeonato")
