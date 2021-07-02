@@ -13,21 +13,18 @@ while continuar not in ['s', 'n']:
 
 while continuar == 's':
     print("Bem-Vindo ao nosso supermercado, os nossos produtos são:\n-> [VASSOURA]\n-> [PANELA] \n-> [ARROZ] \n-> [SALSISHA] \n-> [PÃO] \n-> [CHOCOLATE]")
+    comprar = input("O que você deseja comprar ? ")
+    quantidade = int(input("Quantas unidades ? "))
+    if comprar not in estoque:
+        print("Produto inválido.")
+    
+    for i in estoque:
+        
+    continuar =  input("Deseja continuar comprando? [sim] [não] ").lower()[0]
+    while continuar not in ['s', 'n']:
+        continuar = input("Resposta inválida. Deseja ir as compras ? (s/n ").lower()
 
 
 
 
 
-
-if comprar not in estoque:
-    print("Produto inválido")
-
-quantidade = int(input("Quantidade da compra: "))    
-
-for i in estoque:
-    if i == comprar:
-        baixa_estoque[i] = quantidade
-        estoque.update(baixa_estoque)
-
-
-print(estoque)
