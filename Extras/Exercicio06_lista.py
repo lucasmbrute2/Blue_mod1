@@ -24,11 +24,11 @@ while True:
     else:
         break
 print("="*45)
-print(f"O total de pessoas foi {len(l)}")
+print(f"O total de pessoas foi cadastradas foi {len(l)}")
 for i in l:
     if i[1] == maior:
-        print(f"A pessoas mais leve é {i[0]:2.f}, pesando {menor} KG")
-    elif i[1] == menor:
+        print(f"A pessoas mais leve é {i[0]}, pesando {menor} KG")
+    if i[1] == menor:
         print(f"A pessoas mais pesada é {i[0]}, pesando {maior} KG")    
 
     
