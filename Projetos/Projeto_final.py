@@ -19,3 +19,13 @@
 # Use toda sua criatividade para desenvolver uma história interessante e seja bem
 # específico com relação as escolhas que precisam ser feitas, para que seu jogo
 # seja divertido!
+
+#De noite a bebida diminui os ml's mais rapido.
+#A música influencia na quantidade de ml (ex: Sertenejo faz a bebida "trabalhar" mais).
+#Quanto mais tempo passa melhor a bebida fica, tipo um vinho rs.
+#Uma sociedade de bebidas, em que elas são premiadas por deixar o usuario embreagado.
+
+
+if(__name__ == "__main__"):
+
+    dia = 1
