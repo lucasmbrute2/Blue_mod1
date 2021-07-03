@@ -41,13 +41,11 @@ class Bomba_combustivel:
     def abastecer_por_valor(self):
         
         
-        print(f"Foi abastecido R$ {self.quantidade_combustivel}. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
-        print(f"A bomba possui ainda {(self.quantidade_bomba - self.quantidade_combustivel/self.valor_litro):.1f} litros") 
+        print(f"Foi abastecido R$ {self.quantidade_combustivel} reais. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
+        print(f"A bomba possui ainda {(self.quantidade_bomba - self.quantidade_combustivel/self.valor_litro):.1f} litros.") 
         
 
-    def abastecer_por_litro(self):
-        
-        print(f"O tanque será abastecido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros. O valor será R$ {self.quantidade_combustivel} reais.")
+   
     
     
       
@@ -56,9 +54,11 @@ valor = int(input("Com quantos reais deseja abastecer? "))
 bomba = Bomba_combustivel("etanol", 4.50, valor )
 
 if gasolina == "etanol":
+    print("="*70)
     bomba.abastecer_por_valor()
-    bomba.abastecer_por_litro()
+    
 else:
+    print("="*70)
     bomba.alterar_combustivel("Gasolina")
     bomba.alterar_valor(5.10)
     bomba.alterar_quantidade_combustivel(valor)
