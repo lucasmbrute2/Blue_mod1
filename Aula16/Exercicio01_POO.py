@@ -49,13 +49,6 @@ class Bomba_combustivel:
         else:    
             print(f"Foi abastecido R$ {self.quantidade_combustivel} reais. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
             print(f"A bomba possui ainda {restante:.1f} litros.") 
-        
-        
-    
-
-   
-    
-    
       
 gasolina = input("Com o que deseja abastecer ? [ETANOL] [GASOLINA]: ").lower()
 valor = int(input("Com quantos reais deseja abastecer? "))
@@ -70,6 +63,13 @@ else:
     bomba.alterar_combustivel("Gasolina")
     bomba.alterar_valor(5.10)
     bomba.alterar_quantidade_combustivel(valor)
+        
+        
+    
+
+   
+    
+    
     
 
 
