@@ -9,10 +9,11 @@ class Ingresso:
     
         return f"{self.preco} reais."
     
+    
 
 class IngressoVIP(Ingresso):
    
-   def ingresso_vip(self):
+    def ingresso_vip(self):
         self.preco += 5
         
     
