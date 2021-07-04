@@ -14,13 +14,13 @@ class Televisao():
         
         while volume > 30 or volume <0:
             volume = int(input("Volume inválido, o volume máximo é 35 e o menor é 0. Selecione um valor disponível.  "))
-        return f"O volume da televisão está em {volume}"
+        return f"O volume da televisão está em {volume}."
             
     
     def canal(self):
         while self.tv > 30 or self.tv <5:
             self.tv = int(input("Canal inválido, os canais disponíveis estão na faixa de 5 e 30. Escolha um desses: "))
-        return f"A televisão está no canal {self.tv}"
+        return f"A televisão está no canal {self.tv}."
 
 
 
