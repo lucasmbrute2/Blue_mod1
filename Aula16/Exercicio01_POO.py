@@ -19,10 +19,9 @@ class Bomba_combustivel:
         self.tipo_combustivel = tipo_combustivel
         self.valor_litro = valor_litro
         self.quantidade_combustivel = quantidade_combustivel
-        
-        
         self.quantidade_bomba = 50
-    
+     
+        
     def alterar_combustivel(self,combustivel):
         
         self.tipo_combustivel = combustivel
@@ -30,20 +29,29 @@ class Bomba_combustivel:
     
     def alterar_valor(self,valor):
         self.valor_litro = valor
-        print(f"Foi abastecido R$ {self.quantidade_combustivel}. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
-        print(f"A bomba possui ainda {(self.quantidade_bomba - self.quantidade_combustivel/self.valor_litro):.1f} litros") 
-    
+        restante = (self.quantidade_bomba - self.quantidade_combustivel/self.valor_litro)
+        if restante <0:
+            print(f"Infelizmente só temos disponível na bomba {self.quantidade_bomba} litros.")
+        else:
+            print(f"Foi abastecido R$ {self.quantidade_combustivel}. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
+            
+            print(f"A bomba ainda possui {restante:.1f} litros") 
+        
     def alterar_quantidade_combustivel(self,quantidade):
         
         self.quantidade_combustivel = quantidade
         
         
     def abastecer_por_valor(self):
+        restante = (self.quantidade_bomba - self.quantidade_combustivel/self.valor_litro)
+        if restante <0:
+            print(f"Infelizmente só temos disponível na bomba {self.quantidade_bomba} litros.")
+        else:    
+            print(f"Foi abastecido R$ {self.quantidade_combustivel} reais. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
+            print(f"A bomba possui ainda {restante:.1f} litros.") 
         
         
-        print(f"Foi abastecido R$ {self.quantidade_combustivel} reais. O tanque foi preenchido com {(self.quantidade_combustivel/self.valor_litro):.1f} litros.")
-        print(f"A bomba possui ainda {(self.quantidade_bomba - self.quantidade_combustivel/self.valor_litro):.1f} litros.") 
-        
+    
 
    
     
