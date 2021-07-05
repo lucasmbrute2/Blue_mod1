@@ -30,26 +30,15 @@
  
 # Contexto : Joe é um viralata magricelo, que se perdeu de sua casa e vive numa viela do centro de belo horizonte. Porém a gestão publica da cidade não permite animais de rua, e todos os dias a carrocinha passa procurando cachorros para trancar nas gaiolas de um péssimo abrigo. Sua missão é levar joe de volta a sua casa, sem que ele seja pego pela malvada carrocinha de BH. 
 from time import sleep
-class Opcoes:
-    def __init__(self,opcoes):
-        self.opcoes = opcoes
-        
-    def retorna_dic(self):
-        for c,v  in self.opcoes.items():
-            print(f"\n Opção -{c} : {v}")
-            sleep(0.3)
-    # def escolha(self,choose):
-    #     if choose ==1:
-
 
 class Temporizador:
     def __init__(self):
         pass
     
-    def atrasa_dialogo(self,atrasa_dialogo):
+    def atrasa_dialogo(self,atrasa_dialogo,x="",y="",j=""):
         for i in atrasa_dialogo:
             print(i,end="")
-            sleep(0.011)
+            sleep(0.001)
        
 
         
@@ -57,9 +46,28 @@ class Horas():
     def __init__(self):
         self.horas = 6
         self.minutos = 0
-    
+        
     def __str__(self):
+    
         return f"São {self.horas:02d}:{self.minutos:02d}"
+    
+
+class Opcoes(Horas):
+    def __init__(self,opcoes):
+        super().__init__()
+        
+        self.opcoes = opcoes
+        
+    def retorna_dic(self):
+        for c,v  in self.opcoes.items():
+            print(f"\n Opção -{c} : {v}")
+            sleep(0.3)
+    
+    def escolha(self,choose):
+        if choose ==1:
+            self.horas += 1
+            self.minutos += 30
+            return f"São {self.horas:02d}:{self.minutos:02d}"
 
 
 class Personagem():
@@ -70,8 +78,8 @@ class Personagem():
         self.sede = True
     
     def __str__(self):
-        sleep(1.5)
         return f"--> {nome} está {'com sono' if self.sono  else 'sem sono'}, {'com fome' if self.fome else 'sem fome'}, {'com sede' if self.sede else 'hidratado'} e {'se sentindo sozinho.' if self.sozinho else 'se sentindo acolhido.'}"
+        
         
 dialogo = Temporizador()
 nome = "Joe"
@@ -84,7 +92,7 @@ if __name__=="__main__":
     
     dia = 1
     descricao = f"{horas} do dia {dia}. Você é um viralata magricelo, que se perdeu de casa e vive numa viela muito barulhenta, e para piorar (sempre pode piorar rs) a carrocinha passa as 6:30 recolhendo cachorros de rua. Seu nome é {nome} e você procura a sua casa todos os dias. Entretando a ONG em que você geralmente se alimenta abre as 7:00. O que deseja fazer agora?"
-    
+    desc1 = f"{horas} do dia {dia}."
     status = f"\n{personagem}"
     print('='*70)
     
@@ -95,6 +103,13 @@ if __name__=="__main__":
     opcoes.retorna_dic()
     print('='*84)
     escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
-    opcoes.escolha(escolha)
+    dialogo.atrasa_dialogo(f"{opcoes.escolha(escolha)}")
+    dialogo.atrasa_dialogo(status)
     
-
+    
+    
+    
+            
+        
+    
+    
