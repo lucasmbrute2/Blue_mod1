@@ -70,8 +70,9 @@ class Personagem():
         self.sede = True
     
     def __str__(self):
+        sleep(1.5)
         return f"--> {nome} está {'com sono' if self.sono  else 'sem sono'}, {'com fome' if self.fome else 'sem fome'}, {'com sede' if self.sede else 'hidratado'} e {'se sentindo sozinho.' if self.sozinho else 'se sentindo acolhido.'}"
-
+        
 dialogo = Temporizador()
 nome = "Joe"
 personagem = Personagem()
@@ -86,6 +87,7 @@ if __name__=="__main__":
     
     status = f"\n{personagem}"
     print('='*70)
+    
     dialogo.atrasa_dialogo(descricao)
     print()
     dialogo.atrasa_dialogo(status)
