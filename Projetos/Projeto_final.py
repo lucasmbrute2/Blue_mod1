@@ -78,7 +78,7 @@ class Personagem():
         self.sede = True
     
     def __str__(self):
-        return f"--> {nome} está {'com sono' if self.sono  else 'sem sono'}, {'com fome' if self.fome else 'sem fome'}, {'com sede' if self.sede else 'hidratado'} e {'se sentindo sozinho.' if self.sozinho else 'se sentindo acolhido.'}"
+        return f"--> {nome}, está {'com sono'if self.sono  else 'sem sono'}, {'com fome' if self.fome else 'sem fome'}, {'com sede' if self.sede else 'hidratado'} e {'se sentindo sozinho.' if self.sozinho else 'se sentindo acolhido.'}"
         
         
 dialogo = Temporizador()
@@ -103,8 +103,13 @@ if __name__=="__main__":
     opcoes.retorna_dic()
     print('='*84)
     escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
+    if escolha == 1:
+        personagem.sono = False
+        dialogo.atrasa_dialogo(status)
     dialogo.atrasa_dialogo(f"{opcoes.escolha(escolha)}")
-    dialogo.atrasa_dialogo(status)
+   
+
+    
     
     
     
