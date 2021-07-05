@@ -34,8 +34,13 @@ class Opcoes:
     def __init__(self,opcoes):
         self.opcoes = opcoes
         
-    def retorna_dic(self,)
-        
+    def retorna_dic(self):
+        for c,v  in self.opcoes.items():
+            print(f"\n Opção -{c} : {v}")
+            sleep(0.3)
+    # def escolha(self,choose):
+    #     if choose ==1:
+
 
 class Temporizador:
     def __init__(self):
@@ -44,7 +49,7 @@ class Temporizador:
     def atrasa_dialogo(self,atrasa_dialogo):
         for i in atrasa_dialogo:
             print(i,end="")
-            sleep(0.01)
+            sleep(0.011)
        
 
         
@@ -71,12 +76,11 @@ dialogo = Temporizador()
 nome = "Joe"
 personagem = Personagem()
 horas = Horas()
-opcoes = Opcoes()
 
-
+dic = {1: "Encontrar outro lugar para continuar dormindo.", 2: "Aguardar com sono a ONG abrir.",3: "Voltar a procurar sua casa. ",  4: "Se esconder da carrocinha."  }
+opcoes = Opcoes(dic)
 if __name__=="__main__":
-
-    dic = {1: "Encontrar outro lugar para continuar dormindo", 2: "Aguardar com sono a ong abrir.",3: " Voltar a procurar sua casa. ",  4: "Se esconder da carrocinha"  }
+    
     dia = 1
     descricao = f"{horas} do dia {dia}. Você é um viralata magricelo, que se perdeu de casa e vive numa viela muito barulhenta, e para piorar (sempre pode piorar rs) a carrocinha passa as 6:30 recolhendo cachorros de rua. Seu nome é {nome} e você procura a sua casa todos os dias. Entretando a ONG em que você geralmente se alimenta abre as 7:00. O que deseja fazer agora?"
     
@@ -85,5 +89,10 @@ if __name__=="__main__":
     dialogo.atrasa_dialogo(descricao)
     print()
     dialogo.atrasa_dialogo(status)
+    print()
     opcoes.retorna_dic()
+    print('='*84)
+    escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
+    opcoes.escolha(escolha)
+    
 
