@@ -56,13 +56,13 @@ class Opcoes:
     def retorna_dic(self):
         for c,v in self.opcoes.items():
             print(f"\n -Opção {c}: {v}")
-            # sleep(0.3)
+            sleep(0.3)
 
 personagem = Personagem()
 dialogo = Temporizador()
 nome = "Joe"
 horas = Horas()
-dic = {1: "Encontrar outro lugar para continuar dormindo.", 2: "Aguardar com sono a ONG abrir.",3: "Se esconder da carrocinha"}
+dic = {1: "Encontrar outro lugar para continuar dormindo.", 2: "Aguardar com sono a ONG abrir.",3: "Se esconder da carrocinha."}
 opcoes = Opcoes(dic)
 game_over = retorna_texto()
 
@@ -77,17 +77,26 @@ if __name__ == "__main__":
         opcoes.retorna_dic()
         print('='*84)
         escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
+        while dic.get(escolha,-1) == -1:
+            # escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
+            dialogo.atrasa_dialogo("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n")
+            escolha = int(input())
+            
         if escolha ==1:
             horas.avanca_tempo(720)
             dialogo.atrasa_dialogo(f"{horas} . {nome} descansou, mas passou muito mal por não ter se alimentado. Acabou seu tempo!\n")
             dialogo.atrasa_dialogo(game_over)
             break
         elif escolha ==2:
-            
-            dialogo.atrasa_dialogo("Ele aguarda abrir, porém fica muito visivel e a carrocinha encontra ele.")
-            print(game_over,end="")
+            dialogo.atrasa_dialogo("Ele aguarda abrir a ONG, porém fica muito visível e a carrocinha o encontra.")
+            dialogo.atrasa_dialogo(game_over)
             break
         elif escolha ==3:
-            dialogo.atrasa_dialogo("Ele se esconde da carrocinha, fica seguro, porém encontra uma fêmea.")
+            horas.avanca_tempo(120)
+            dialogo.atrasa_dialogo(f"{nome} ficou seguro, mas no caminho para casa, se deparou com uma bela fêmea, a cheirosa mais linda da cidade.")
             
-
+            dic = {1:"Ir viver com o amor da sua vida nas ruas de BH, vivendo da sua arte.",2:" Não ir até a femêa e seguir a busca pela sua casa.",3:"Ir até a ONG e se alimentar. "}
+            opcoes = Opcoes(dic)
+            opcoes.retorna_dic()
+            
+            escolha = input("O que você quer fazer? ")
