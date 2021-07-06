@@ -1,8 +1,18 @@
 # A Vida de Joe 
+# Contexto: 
+# Joe é um viralata magricelo, que se perdeu de sua casa e vive numa viela no centro de belo horizonte. 
+# Porém a gestão publica da cidade não permite animais de rua, e todos os dias a carrocinha passa procurando cachorros de rua para trancar nas gaiolas de um péssimo abrigo. Sua missão é levar joe de volta a sua casa, até as 18:00 horas, sem que ele seja pego pela malvada carrocinha de BH e sem passar por nenhuma dificuldade.
  
-# Contexto : Joe é um viralata magricelo, que se perdeu de sua casa e vive numa viela do centro de belo horizonte. Porém a gestão publica da cidade não permite animais de rua, e todos os dias a carrocinha passa procurando cachorros para trancar nas gaiolas de um péssimo abrigo. Sua missão é levar joe de volta a sua casa, sem que ele seja pego pela malvada carrocinha de BH.
 from time import sleep
-class Temporizador():
+
+def retorna_texto():
+    return "Você não concluiu o objetivo. ~GAME OVER~"
+    """Retorna 'game over para o usuário.'"""
+
+        
+
+      
+class Temporizador:
     def __init__(self):
         pass
     
@@ -12,16 +22,23 @@ class Temporizador():
             sleep(0.006)
 
 
-class Horas():
+class Horas:
     def __init__(self):
         self.horas = 6
         self.minutos = 0
 
     def __str__(self):
         return f"São {self.horas:02d}:{self.minutos:02d}"
+    
+    
+    def avanca_tempo(self,minutos):
+        self.minutos += minutos
+        while(self.minutos >= 60):
+            self.minutos -= 60
+            self.horas += 1
 
 
-class Personagem():
+class Personagem:
     def __init__(self):
 
         self.sono = True
@@ -32,29 +49,45 @@ class Personagem():
     def __str__(self):
         return f"-> {nome} {'está com sono' if self.sono else 'está descansado'}, {'está com fome' if self.fome else 'está alimentado'}, {'está sozinho' if self.sozinho else 'está acompanhado'} e {'está com sede' if self.sede else 'está saciado'}."
 
-class Opcoes():
+class Opcoes:
     def __init__(self,opcoes):
         self.opcoes = opcoes
 
     def retorna_dic(self):
         for c,v in self.opcoes.items():
             print(f"\n -Opção {c}: {v}")
-            sleep(0.3)
+            # sleep(0.3)
+
 personagem = Personagem()
 dialogo = Temporizador()
 nome = "Joe"
 horas = Horas()
-dic = {1: "Encontrar outro lugar para continuar dormindo.", 2: "Aguardar com sono a ONG abrir.",3: "Voltar a procurar sua casa. ",  4: "Se esconder da carrocinha."  }
+dic = {1: "Encontrar outro lugar para continuar dormindo.", 2: "Aguardar com sono a ONG abrir.",3: "Se esconder da carrocinha"}
 opcoes = Opcoes(dic)
+game_over = retorna_texto()
 
 if __name__ == "__main__":
-    dia = 1
-    status = f"\n{personagem}"
-    descricao = f"{horas} do dia {dia}. Você é um viralata magricelo, que se perdeu de casa e vive numa viela muito barulhenta, e para piorar (sempre pode piorar rs) a carrocinha passa as 6:30 recolhendo cachorros de rua. Seu nome é {nome} e você procura a sua casa todos os dias. Entretando a ONG em que você geralmente se alimenta abre as 7:00. O que deseja fazer agora?"
-    dialogo.atrasa_dialogo(descricao)
-    print()
-    dialogo.atrasa_dialogo(status)
-    print()
-    opcoes.retorna_dic()
-    print('='*84)
-    escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
+    while True:
+        
+        status = f"\n{personagem}"
+        dialogo.atrasa_dialogo(f"{horas}. Você é um viralata magricelo, que se perdeu de casa e vive numa viela muito barulhenta, e para piorar (sempre pode piorar rs) a carrocinha passa as 6:30 recolhendo cachorros de rua. Seu nome é {nome} e você procura a sua casa todos os dias. Entretando a ONG em que você geralmente se alimenta abre as 7:00. O que deseja fazer agora?")
+        print()
+        dialogo.atrasa_dialogo(status)
+        print()
+        opcoes.retorna_dic()
+        print('='*84)
+        escolha = int(input("Digite a opção em que você deseja seguir. Lembre-se que a sua escolha é irreversível.\n"))
+        if escolha ==1:
+            horas.avanca_tempo(720)
+            dialogo.atrasa_dialogo(f"{horas} . {nome} descansou, mas passou muito mal por não ter se alimentado. Acabou seu tempo!\n")
+            dialogo.atrasa_dialogo(game_over)
+            break
+        elif escolha ==2:
+            
+            dialogo.atrasa_dialogo("Ele aguarda abrir, porém fica muito visivel e a carrocinha encontra ele.")
+            print(game_over,end="")
+            break
+        elif escolha ==3:
+            dialogo.atrasa_dialogo("Ele se esconde da carrocinha, fica seguro, porém encontra uma fêmea.")
+            
+
