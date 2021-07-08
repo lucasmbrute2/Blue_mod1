@@ -2,121 +2,26 @@
 # Contexto: 
 # Joe é um viralata magricelo, que se perdeu de sua casa e vive numa viela no centro de belo horizonte. 
 # Porém a gestão publica da cidade não permite animais de rua, e todos os dias a carrocinha passa procurando cachorros de rua para trancar nas gaiolas de um péssimo abrigo. Sua missão é levar joe de volta a sua casa, até as 18:00 horas, sem que ele seja pego pela malvada carrocinha de BH e sem passar por nenhuma dificuldade.
- 
 from time import sleep
 
-def retorna_again():
-    return "Gostaria de jogar novamente ? "
+import mod_projeto_final02 as mod
 
-def retorna_texto():
-    return "\nVocê não concluiu o objetivo. \n~GAME OVER~"
-    """Retorna 'game over para o usuário."""
-
-
-class Respostas:
-    def __init__(self):
-        pass
-        
-    def resposta_errada(self,horas,dialogo,mensagem,gameover,again):
-        dialogo.atrasa_dialogo(mensagem)
-        
-        dialogo.atrasa_dialogo(gameover)
-        horas = Horas()
-        
-        print()
-        print('='*40)
-        dialogo.atrasa_dialogo(again)
-        again = input().upper()[0]
-        if again in ['S']:            
-            return True
-        else:
-            dialogo.atrasa_dialogo("----OBRIGADO POR JOGAR----")
-            return False
-        
-    def resposta_certa(self,horas,quant_horas,mensagem,dialogo,dic):
-
-        horas.avanca_tempo(quant_horas)
-        dialogo.atrasa_dialogo(mensagem)
-        
-        
-        opcoes = Opcoes(dic)
-        print()
-        opcoes.retorna_dic()
-        
-        print('='*84)
-        #Parte de validação da resposta
-
-class Temporizador:
-    def __init__(self):
-        pass
-    
-    def atrasa_dialogo(self,dialogo):
-        for i in dialogo:
-            print(i,end="")
-            # sleep(0.006)
-    """ Função criada para deixar o diálogo aparecendo
-    com uma letra de cada vez"""
-
-class Horas:
-    def __init__(self):
-        self.horas = 6
-        self.minutos = 0
-
-    def __str__(self):
-        return f"São {self.horas:02d}:{self.minutos:02d}"
-    
-    
-    def avanca_tempo(self,minutos):
-        self.minutos += minutos
-        while(self.minutos >= 60):
-            self.minutos -= 60
-            self.horas += 1
-    """ Manipulamos todo o tempo passado no jogo por essa função"""
-
-class Personagem:
-    def __init__(self):
-
-        self.sono = True
-        self.fome = True
-        self.sozinho = True
-        self.sede = True
-  
-    def __str__(self):
-        return f"-> {nome} {'está com sono' if self.sono else 'está descansado'}, {'está com fome' if self.fome else 'está alimentado'}, {'está sozinho' if self.sozinho else 'está acompanhado'} e {'está com sede' if self.sede else 'está saciado'}."
-    """É a função onde estão os atributos do nosso personagem, seu estado de saúde é manipulado por aqui."""
-
-    def reset(self):
-        self.sono = True
-        self.fome = True
-        self.sozinho = True
-
-
-class Opcoes:
-    def __init__(self,opcoes):
-        self.opcoes = opcoes
-
-    def retorna_dic(self):
-        for c,v in self.opcoes.items():
-            print(f"\n -Opção {c}: {v}")
-            # sleep(0.3)
-    """É a função que retorna as opções de diálogo."""
-
-resposta = Respostas()
+resposta = mod.Respostas()
 jogador = ""
-personagem = Personagem()
-dialogo = Temporizador()
+dialogo = mod.Temporizador()
 nome = "Joe"
-horas = Horas()
+horas = mod.Horas()
 dic = {1: "Encontrar outro lugar para continuar dormindo.", 2: "Aguardar com sono a ONG abrir.",3: "Se esconder da carrocinha."}
-opcoes = Opcoes(dic)
-game_over = retorna_texto()
-again = retorna_again()
+opcoes = mod.Opcoes(dic)
+game_over = mod.retorna_texto()
+again = mod.retorna_again()
 
 if __name__ == "__main__":
     while True:
+        horas = mod.Horas()
         jogador = input("Digite o nome do Player 1: ")
-        status = f"\n{personagem}"
-        dialogo.atrasa_dialogo(f"{horas}. Você é um viralata magricelo, que se perdeu de casa e vive numa viela muito barulhenta, e para piorar (sempre pode piorar rs) a carrocinha passa as 6:30 recolhendo cachorros de rua. Seu nome é {nome} e você procura a sua casa todos os dias. Entretando a ONG em que você geralmente se alimenta abre as 7:00. O que deseja fazer agora?")
+        # status = f"\n{personagem}"
+        dialogo.atrasa_dialogo(f"São {horas}. Você é um viralata magricelo, que se perdeu de casa e vive numa viela muito barulhenta, e para piorar (sempre pode piorar rs) a carrocinha passa as 6:30 recolhendo cachorros de rua. Seu nome é {nome} e você procura a sua casa todos os dias. Entretando a ONG em que você geralmente se alimenta abre as 7:00. O que deseja fazer agora?")
         print()
         # dialogo.atrasa_dialogo(status)
         print()
@@ -170,7 +75,7 @@ if __name__ == "__main__":
 
             elif escolha ==2:
                 
-                dic = {1:"Consumir a bebida alcoolica", 2:"Segurar a sede e caminhar até a fonte", 3:"Seguir seu caminho com sede."}
+                dic = {1:"Consumir a bebida alcoolica.", 2:"Segurar a sede e caminhar até a fonte.", 3:"Seguir seu caminho com sede."}
                 mensagem = f"Agora já são {horas}, {nome} ainda não conseguiu encontrar o caminho de casa e está com muita sede, e pra piorar faz um sol de 39° Em BH. O problema, é que por estar na rua o unico liquido que joe encontrou foi o resto de uma bebida alcoolica que jogaram na rua, e a próxima fonte de agua pública está a 5km de distancia."
                 
                 
@@ -189,7 +94,7 @@ if __name__ == "__main__":
                         break
                 elif escolha ==2:
                     dic = {1:"Sentar a paulada no gato folgado.",2: "Compor uma música romântica, e tentar conquistar de uma vez por todas a femêa da sua vida.",3: "Meditar, assistir uma palestra de auto-ajuda e seguir o seu caminho sem confusão."}
-                    mensagem = f" Deu tudo certo, {nome} se cansou um pouco mas conseguiu chegar até a fonte e saciar toda sua sede. O problema é que por ser uma fonte pública, outros animais também tomam aguá ali, e por consequência disso, {nome}se encontrou com um gato muito encrenqueiro!"  
+                    mensagem = f"Deu tudo certo, {nome} se cansou um pouco mas conseguiu chegar até a fonte e saciar toda sua sede. O problema é que por ser uma fonte pública, outros animais também tomam aguá ali, e por consequência disso, {nome}se encontrou com um gato muito encrenqueiro!"  
                     
                     
                     resposta.resposta_certa(horas,120,mensagem,dialogo,dic)
@@ -236,7 +141,7 @@ if __name__ == "__main__":
                                 escolha = int(input())
                         
                             if escolha ==3:
-                                mensagem = f"PARABÉNS {jogador}, VOCÊ VENCEU!! {nome} chegou até sua casa, seus donos amaram! Deram a ele muita água e comidas sensacionais. Sabe da melhor? O cachorro que ele viu de longe, era aquela femêa! A mais top de BH! {nome} agradece muito seu esforço para ajuda-lo, até a próxima ;)"
+                                mensagem = f"PARABÉNS {jogador}, VOCÊ VENCEU!! {nome} chegou até sua casa, seus donos amaram! Deram a ele muita água e comidas sensacionais. Sabe da melhor? O cachorro que ele viu de longe, era aquela femêa, a mais top de BH! {nome} agradece muito seu esforço para ajuda-lo, até a próxima ;)"
                                 dialogo.atrasa_dialogo(mensagem)
                                 
                                 break
